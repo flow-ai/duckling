@@ -2,7 +2,8 @@ FROM haskell:8
 
 RUN mkdir /log
 
-WORKDIR /duckling
+WORKDIR /app
+COPY . /app
 
 RUN apt-get update
 
