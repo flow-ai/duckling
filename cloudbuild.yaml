@@ -1,0 +1,19 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
+- name: 'busybox'
+  args: ['mkdir', './charts']
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', '-r', 'gs://flowai-chart', './charts'] 
+- name: 'gcr.io/$PROJECT_ID/helm'
+  args: ['upgrade','--install', 'duckling-haskell','./charts/flowai-chart/nodejs','--set','image.tag=$COMMIT_SHA','-f','./helm/nodejs/values.yaml','-f','./helm/nodejs/values-dev.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=flow-env-dev'  
+#- name: 'gcr.io/cloud-builders/kubectl'
+#TODO replace deployment/<something>-nodejs with your deployment name, to get it do kubectl get deployments
+#  args: ['set','image','deployment/brain-nodejs','nodejs=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
+#  env:
+#  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
+#  - 'CLOUDSDK_CONTAINER_CLUSTER=flow-env-dev'
+images: ['gcr.io/$PROJECT_ID/$REPO_NAME']

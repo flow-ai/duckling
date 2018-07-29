@@ -16,4 +16,6 @@ RUN stack setup
 # '-j1' flag to force the build to run sequentially.
 RUN stack build
 
+EXPOSE 8000
+
 ENTRYPOINT stack exec duckling-example-exe

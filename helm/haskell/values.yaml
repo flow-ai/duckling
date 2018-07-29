@@ -1,0 +1,26 @@
+
+env:
+  PORT: 80
+
+replicaCount: 1
+
+image:
+  repository: gcr.io/env-flowai/github-flow-ai-channel-alexa
+  tag: 003d7194c0fe27a5a4e8ec7123e8080ecd4a991b
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/ssl-redirect: false
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
+  path: /channel-alexa
+  host: app-dev.flow.ai
+#  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
