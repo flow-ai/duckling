@@ -53,7 +53,7 @@ main = do
     ifTop (writeBS "quack!") <|>
     route
       [ ("targets", method GET targetsHandler)
-        ("healthz", method GET healthzHandler)
+      , ("healthz", method GET healthzHandler)
       , ("parse", method POST $ parseHandler tzs)
       ]
 
