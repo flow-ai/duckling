@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: gcr.io/env-flowai/github-flow-ai-duckling
-  tag: bf6cb1b33500c32c97f7306ca7c3ed4f491bb407 
+  tag: bbe145f97e0ae68a4727f2dfd4121960a6dad885
   pullPolicy: Always
 
 service:
