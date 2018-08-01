@@ -5,8 +5,8 @@ env:
 replicaCount: 1
 
 image:
-  repository: gcr.io/env-flowai/github-flow-ai-channel-alexa
-  tag: 003d7194c0fe27a5a4e8ec7123e8080ecd4a991b
+  repository: gcr.io/env-flowai/github-flow-ai-duckling
+  tag: bf6cb1b33500c32c97f7306ca7c3ed4f491bb407 
   pullPolicy: Always
 
 service:
@@ -18,7 +18,7 @@ ingress:
     kubernetes.io/ingress.class: "app"
     nginx.ingress.kubernetes.io/ssl-redirect: false
     nginx.ingress.kubernetes.io/rewrite-target: "/"
-  path: /channel-alexa
+  path: /duckling
   host: app-dev.flow.ai
 #  tls: []
   #  - secretName: chart-example-tls

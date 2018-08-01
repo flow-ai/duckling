@@ -53,6 +53,7 @@ main = do
     ifTop (writeBS "quack!") <|>
     route
       [ ("targets", method GET targetsHandler)
+        ("healthz", method GET healthzHandler)
       , ("parse", method POST $ parseHandler tzs)
       ]
 
@@ -65,6 +66,13 @@ targetsHandler = do
   where
     dimText :: (Lang, [Some Dimension]) -> (Text, [Text])
     dimText = (Text.toLower . showt) *** map (\(This d) -> toName d)
+
+
+-- | Return which languages have which dimensions
+healthzHandler :: Snap ()
+healthzHandler = do
+  modifyResponse $ setHeader "Content-Type" "application/json"
+  writeBS "{status:ok}"
 
 
 -- | Parse some text into the given dimensions
