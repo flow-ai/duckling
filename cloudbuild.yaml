@@ -11,3 +11,4 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
   - 'CLOUDSDK_CONTAINER_CLUSTER=flow-env-dev'  
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME']
+timeout: 3000s
