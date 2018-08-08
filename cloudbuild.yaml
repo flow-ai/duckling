@@ -18,4 +18,4 @@ substitutions:
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME']
 timeout: 3000s
 options:
-  machineType: 'N1_HIGHCPU_4'
+  machineType: 'N1_HIGHCPU_8'
