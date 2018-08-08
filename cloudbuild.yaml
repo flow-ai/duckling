@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA','--tag=gcr.io/$PROJECT_ID/$REPO_NAME:v$TAG_NAME', '.']
 - name: 'busybox'
   args: ['mkdir', './charts']
 - name: 'gcr.io/cloud-builders/gsutil'
