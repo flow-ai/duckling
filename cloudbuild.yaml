@@ -17,3 +17,5 @@ substitutions:
     _ENV: dev
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME']
 timeout: 3000s
+options:
+  machineType: 'N1_HIGHCPU_4'
