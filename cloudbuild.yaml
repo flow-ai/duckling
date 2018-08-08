@@ -16,3 +16,4 @@ steps:
 substitutions:
     _ENV: dev
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME']
+timeout: 3000s
